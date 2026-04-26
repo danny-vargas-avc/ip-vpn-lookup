@@ -8,23 +8,31 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+import type { Map } from 'leaflet'
 
 const props = defineProps<{ lat: number; lon: number }>()
 
 const mapEl = ref<HTMLElement | null>(null)
+let mapInstance: Map | null = null
 
 onMounted(async () => {
   if (!mapEl.value) return
   const L = (await import('leaflet')).default
-  const map = L.map(mapEl.value, { zoomControl: false, attributionControl: false }).setView([props.lat, props.lon], 10)
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
+  if (!mapEl.value) return  // guard against unmount during async import
+  mapInstance = L.map(mapEl.value, { zoomControl: false, attributionControl: false }).setView([props.lat, props.lon], 10)
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapInstance)
   L.circleMarker([props.lat, props.lon], {
     radius: 8,
     color: '#0ea5e9',
     fillColor: '#0ea5e9',
     fillOpacity: 0.5,
     weight: 2,
-  }).addTo(map)
+  }).addTo(mapInstance)
+})
+
+onUnmounted(() => {
+  mapInstance?.remove()
+  mapInstance = null
 })
 </script>

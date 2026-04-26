@@ -1,7 +1,6 @@
-const SITE_URL = 'https://iplocator.dev'
-
 export function usePageMeta(opts: { title: string; description: string; path: string }) {
-  const url = `${SITE_URL}${opts.path}`
+  const { public: { siteUrl } } = useRuntimeConfig()
+  const url = `${siteUrl}${opts.path}`
 
   useSeoMeta({
     title: opts.title,

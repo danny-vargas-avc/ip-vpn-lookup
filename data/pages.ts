@@ -1,23 +1,31 @@
 import type { Faq } from './types'
 
+export interface AdSlots {
+  belowTool: string
+  inContent: string
+}
+
 export interface PageData {
   path: string
+  breadcrumb: string
   title: string
   description: string
   heading: string
   tagline: string
   body: string
   faqs: Faq[]
-  breadcrumb: string
+  adSlots: AdSlots
 }
 
 export const pages: Record<string, PageData> = {
   '/': {
     path: '/',
+    breadcrumb: 'IP Lookup',
     title: 'What Is My IP Address? — IP Lookup & VPN Checker',
     description: 'Instantly find your public IP address, see your geolocation and ISP, and check whether your VPN is working. Free IP lookup tool — no sign-up required.',
     heading: 'What Is My IP Address?',
     tagline: 'Your public IP, location, ISP, and VPN status — detected instantly.',
+    adSlots: { belowTool: '1234567890', inContent: '0987654321' },
     body: `Your IP address is a unique identifier assigned by your internet service provider every time you connect to the internet. It reveals your approximate location, your ISP, and whether you're connecting through a VPN or proxy server.
 
 Every website you visit can see this information automatically — you don't need to share it. Advertisers, trackers, and even cybercriminals use IP addresses to profile users, serve targeted ads, and in some cases, identify individuals.
@@ -49,10 +57,12 @@ This tool queries your connection in real time and shows you exactly what the in
 
   '/what-is-my-ip': {
     path: '/what-is-my-ip',
+    breadcrumb: 'What Is My IP',
     title: 'What Is My IP Address? — Find Your IP Instantly',
     description: 'See your public IPv4 address, internet provider, city, and country in seconds. Free IP address lookup — no sign-up, no tracking.',
     heading: 'What Is My IP Address?',
     tagline: 'Find your public IP, location, and ISP instantly.',
+    adSlots: { belowTool: '1234567891', inContent: '0987654322' },
     body: `When you connect to the internet, your ISP assigns you a public IP address. This address is visible to every website you visit — it\'s how servers know where to send the data you requested. Think of it like the return address on a letter.
 
 Unlike your physical address, your IP address changes periodically (unless you have a static IP) and only reveals your city or region, not your exact street address. But it can still be used to track you across websites, block you from region-locked content, or serve you location-targeted ads.
@@ -84,10 +94,12 @@ Knowing your IP address is useful when troubleshooting network issues, setting u
 
   '/vpn-checker': {
     path: '/vpn-checker',
+    breadcrumb: 'VPN Checker',
     title: 'Is My VPN Working? — Check VPN Detection Online',
     description: 'Test whether your VPN is hiding your real IP address. Our VPN detection tool shows you exactly what websites see — and whether your VPN is actually working.',
     heading: 'Is My VPN Working?',
     tagline: 'Check whether websites can detect your VPN connection.',
+    adSlots: { belowTool: '1234567892', inContent: '0987654323' },
     body: `A VPN should mask your real IP address and make your traffic appear to originate from the VPN server\'s location. But not all VPNs work perfectly — DNS leaks, WebRTC leaks, and improperly configured kill switches can expose your real IP even when you think you\'re protected.
 
 This tool checks whether your current IP address is flagged as belonging to a VPN provider, proxy service, or datacenter. If your VPN is working correctly, you should see your IP as a VPN-flagged address — not your home ISP. If your real ISP appears here despite having a VPN active, you likely have a leak.

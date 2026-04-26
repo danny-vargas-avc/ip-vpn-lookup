@@ -1,12 +1,10 @@
 <template>
   <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
-    <!-- IP address hero -->
     <div class="px-6 py-5 border-b border-slate-800">
       <p class="text-xs font-medium text-slate-500 uppercase tracking-widest mb-1">Your IP Address</p>
       <p class="text-3xl font-mono font-bold text-slate-100 tracking-tight">{{ data.query }}</p>
     </div>
 
-    <!-- Data grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-slate-800">
       <div class="divide-y divide-slate-800">
         <DataRow label="Location" :value="`${data.city}, ${data.regionName}`" />

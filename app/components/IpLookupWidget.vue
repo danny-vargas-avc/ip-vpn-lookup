@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Loading skeleton -->
     <div v-if="status === 'idle' || status === 'pending'" class="space-y-4">
       <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden animate-pulse">
         <div class="px-6 py-5 border-b border-slate-800">
@@ -16,7 +15,6 @@
       <div class="w-full h-48 rounded-xl bg-slate-900 border border-slate-800 animate-pulse" />
     </div>
 
-    <!-- Error state -->
     <div v-else-if="status === 'error'" class="bg-slate-900 border border-red-500/30 rounded-2xl p-8 text-center">
       <p class="text-slate-300 font-medium mb-1">Unable to detect your IP address</p>
       <p class="text-sm text-slate-500 mb-4">The lookup service returned an error. Please try again.</p>
@@ -28,7 +26,6 @@
       </button>
     </div>
 
-    <!-- Result state -->
     <div v-else-if="data?.status === 'success'" class="space-y-4">
       <IpResultCard :data="data" />
       <IpMiniMap :lat="data.lat" :lon="data.lon" />

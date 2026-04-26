@@ -1,10 +1,10 @@
 import type { Faq } from '../../data/types'
 
-const SITE_URL = 'https://iplocator.dev'
-
 export function useJsonLd() {
+  const { public: { siteUrl } } = useRuntimeConfig()
+
   function injectWebApplication(name: string, description: string, path: string) {
-    const url = `${SITE_URL}${path}`
+    const url = `${siteUrl}${path}`
     useHead({
       link: [{ rel: 'canonical', href: url }],
       script: [{
@@ -18,11 +18,7 @@ export function useJsonLd() {
           applicationCategory: 'NetworkApplication',
           operatingSystem: 'Any',
           inLanguage: 'en-US',
-          offers: {
-            '@type': 'Offer',
-            price: '0',
-            priceCurrency: 'USD',
-          },
+          offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
         }),
       }],
     })
@@ -39,10 +35,7 @@ export function useJsonLd() {
           mainEntity: faqs.map(faq => ({
             '@type': 'Question',
             name: faq.question,
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: faq.answer,
-            },
+            acceptedAnswer: { '@type': 'Answer', text: faq.answer },
           })),
         }),
       }],
@@ -60,7 +53,7 @@ export function useJsonLd() {
             '@type': 'ListItem',
             position: i + 1,
             name: crumb.label,
-            ...(crumb.href ? { item: SITE_URL + crumb.href } : {}),
+            ...(crumb.href ? { item: siteUrl + crumb.href } : {}),
           })),
         }),
       }],
