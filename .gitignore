@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Nuxt build output
+.nuxt/
+.output/
+dist
+dist/
+
+# Claude framework + planning files
+claude-main-v2/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
