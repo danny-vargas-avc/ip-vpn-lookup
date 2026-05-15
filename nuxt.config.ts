@@ -5,9 +5,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       script: [
-        { src: 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX', async: true },
+        { src: 'https://www.googletagmanager.com/gtag/js?id=G-7PP5PD1CZT', async: true },
         {
-          innerHTML: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');`,
+          innerHTML: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7PP5PD1CZT');`,
         },
         {
           src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8420827185796423',
@@ -27,7 +27,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ['/', '/what-is-my-ip', '/vpn-checker'],
+      routes: ['/', '/what-is-my-ip', '/vpn-checker', '/about', '/contact', '/privacy', '/terms'],
       crawlLinks: true,
     },
   },
@@ -39,7 +39,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     ipApiKey: '',
     public: {
-      gaMeasurementId: 'G-XXXXXXXXXX',
+      gaMeasurementId: 'G-7PP5PD1CZT',
       adsenseId: 'ca-pub-8420827185796423',
       siteUrl: 'https://iplocator.dev',
     },

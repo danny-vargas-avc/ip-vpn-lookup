@@ -57,8 +57,11 @@
 
       <div class="border-t border-slate-800 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
         <span>© {{ new Date().getFullYear() }} iplocator.dev</span>
-        <nav class="flex gap-4">
+        <nav class="flex flex-wrap gap-4">
+          <NuxtLink to="/about" class="hover:text-slate-400 transition-colors">About</NuxtLink>
+          <NuxtLink to="/contact" class="hover:text-slate-400 transition-colors">Contact</NuxtLink>
           <NuxtLink to="/privacy" class="hover:text-slate-400 transition-colors">Privacy</NuxtLink>
+          <NuxtLink to="/terms" class="hover:text-slate-400 transition-colors">Terms</NuxtLink>
         </nav>
       </div>
     </div>

@@ -12,5 +12,9 @@ export function usePageMeta(opts: { title: string; description: string; path: st
     twitterCard: 'summary',
   })
 
+  useHead({
+    link: [{ rel: 'canonical', href: url }],
+  })
+
   return { url }
 }
