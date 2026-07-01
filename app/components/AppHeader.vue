@@ -30,7 +30,7 @@
 <script setup lang="ts">
 const links = [
   { href: '/', label: 'My IP' },
-  { href: '/what-is-my-ip', label: 'What Is My IP' },
+  { href: '/what-is-my-ip', label: 'IP Guide' },
   { href: '/vpn-checker', label: 'VPN Checker' },
 ]
 </script>

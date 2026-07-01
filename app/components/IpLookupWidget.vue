@@ -1,6 +1,9 @@
 <template>
   <div>
     <div v-if="status === 'idle' || status === 'pending'" class="space-y-4">
+      <p class="text-sm text-slate-500">
+        Detecting your public IP address, geolocation, ISP, and VPN/proxy status…
+      </p>
       <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden animate-pulse">
         <div class="px-6 py-5 border-b border-slate-800">
           <div class="h-3 w-24 bg-slate-800 rounded mb-2" />

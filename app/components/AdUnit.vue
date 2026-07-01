@@ -1,7 +1,6 @@
 <template>
-  <div class="w-full overflow-hidden bg-slate-900 rounded-xl" :style="{ minHeight: MIN_HEIGHTS[placement] }">
+  <div v-if="showAd" class="w-full overflow-hidden bg-slate-900 rounded-xl" :style="{ minHeight: MIN_HEIGHTS[placement] }">
     <ins
-      v-if="adsenseId"
       class="adsbygoogle block"
       :data-ad-client="adsenseId"
       :data-ad-slot="slot"
@@ -12,14 +11,18 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 
 const props = defineProps<{
   slot: string
   placement: 'below-tool' | 'in-content'
 }>()
 
-const { public: { adsenseId } } = useRuntimeConfig()
+const { public: { adsenseId, adsenseEnabled } } = useRuntimeConfig()
+
+// Only render ad markup once the account is approved and real slot IDs are wired.
+// Until then nothing renders — no empty placeholder boxes on review pages.
+const showAd = computed(() => Boolean(adsenseEnabled && adsenseId))
 
 const MIN_HEIGHTS: Record<typeof props.placement, string> = {
   'below-tool': '90px',
@@ -27,7 +30,7 @@ const MIN_HEIGHTS: Record<typeof props.placement, string> = {
 }
 
 onMounted(() => {
-  if (adsenseId && typeof window !== 'undefined' && (window as any).adsbygoogle) {
+  if (showAd.value && typeof window !== 'undefined' && (window as any).adsbygoogle) {
     ;(window as any).adsbygoogle.push({})
   }
 })

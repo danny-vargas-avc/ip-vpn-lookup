@@ -5,7 +5,12 @@ export interface VpnProvider {
   badge?: string
 }
 
-// PLACEHOLDER: replace hrefs with real affiliate URLs before launch
+// The affiliate grid stays HIDDEN until two things are true:
+//   1. adsenseEnabled is flipped on (post AdSense approval), and
+//   2. every href below is a real affiliate URL (no leading '#').
+// The '#' placeholders below are intentionally non-functional so the grid
+// cannot render dead links during review. Replace them with real URLs when
+// the affiliate programs are approved, then flip NUXT_PUBLIC_ADSENSE_ENABLED=true.
 export const vpnProviders: VpnProvider[] = [
   {
     name: 'NordVPN',

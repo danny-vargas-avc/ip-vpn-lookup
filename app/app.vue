@@ -13,4 +13,8 @@
 useHead({
   htmlAttrs: { lang: 'en' },
 })
+
+// Site-wide identity for E-E-A-T: publisher Organization + WebSite.
+const { injectOrganizationAndWebsite } = useJsonLd()
+injectOrganizationAndWebsite()
 </script>

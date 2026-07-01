@@ -18,26 +18,21 @@
         </div>
 
         <div>
-          <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Popular Searches</h3>
+          <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Learn</h3>
           <ul class="space-y-2">
             <li>
-              <NuxtLink to="/" class="text-sm text-slate-400 hover:text-slate-100 transition-colors">
-                What is my IP address
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/vpn-checker" class="text-sm text-slate-400 hover:text-slate-100 transition-colors">
-                Is my VPN working
-              </NuxtLink>
-            </li>
-            <li>
               <NuxtLink to="/what-is-my-ip" class="text-sm text-slate-400 hover:text-slate-100 transition-colors">
-                Find my IP location
+                What is an IP address?
               </NuxtLink>
             </li>
             <li>
               <NuxtLink to="/vpn-checker" class="text-sm text-slate-400 hover:text-slate-100 transition-colors">
-                Check VPN detection
+                Is my VPN working?
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/about" class="text-sm text-slate-400 hover:text-slate-100 transition-colors">
+                About this site
               </NuxtLink>
             </li>
           </ul>
@@ -71,7 +66,7 @@
 <script setup lang="ts">
 const toolLinks = [
   { href: '/', label: 'IP Address Lookup' },
-  { href: '/what-is-my-ip', label: 'What Is My IP' },
+  { href: '/what-is-my-ip', label: 'IP Address Guide' },
   { href: '/vpn-checker', label: 'VPN Checker' },
 ]
 </script>

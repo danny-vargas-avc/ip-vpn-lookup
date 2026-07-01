@@ -1,24 +1,25 @@
 <template>
-  <div>
-    <h2 class="text-xl font-semibold text-slate-100 mb-2">
-      {{ isExposed ? 'Protect yourself with a trusted VPN' : 'Compare top VPN providers' }}
-    </h2>
+  <!--
+    Monetization gate: the affiliate grid only renders once adsenseEnabled is
+    flipped on (post-approval) AND real affiliate URLs are wired into data/vpns.ts.
+    During AdSense review it renders nothing, so there are no dead CTA links or
+    made-for-ads framing. The neutral VpnGuide section carries the VPN content.
+  -->
+  <div v-if="adsenseEnabled && vpnProviders.every(v => !v.href.startsWith('#'))">
+    <h2 class="text-xl font-semibold text-slate-100 mb-2">Compare trusted VPN providers</h2>
     <p class="text-sm text-slate-400 mb-5">
-      {{ isExposed
-        ? 'Hide your IP address and encrypt your connection. These providers are trusted by millions.'
-        : 'Already using a VPN? See how your current provider stacks up against the top options.'
-      }}
+      If you decide a VPN fits your needs, these are established providers with independently audited no-logs policies.
     </p>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <VpnAffiliateCard
         v-for="vpn in vpnProviders"
         :key="vpn.name"
         v-bind="vpn"
-        :cta-text="isExposed ? 'Get Protected' : 'Compare Plans'"
+        cta-text="Visit site"
       />
     </div>
     <p class="text-xs text-slate-600 mt-3">
-      Affiliate disclosure: we may earn a commission if you sign up through these links, at no extra cost to you.
+      Affiliate disclosure: some links are affiliate links — I may earn a commission if you sign up through them, at no extra cost to you.
     </p>
   </div>
 </template>
@@ -26,5 +27,5 @@
 <script setup lang="ts">
 import { vpnProviders } from '../../data/vpns'
 
-defineProps<{ isExposed: boolean }>()
+const { public: { adsenseEnabled } } = useRuntimeConfig()
 </script>

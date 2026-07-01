@@ -42,6 +42,13 @@ export default defineNuxtConfig({
       gaMeasurementId: 'G-7PP5PD1CZT',
       adsenseId: 'ca-pub-8420827185796423',
       siteUrl: 'https://iplocator.dev',
+      // Master switch for ALL monetization (AdSense <ins> slots AND the VPN
+      // affiliate grid). Leave OFF until the AdSense account is approved AND
+      // real ad-unit slot IDs + real affiliate URLs are wired in. While off,
+      // no ad boxes and no affiliate CTAs render — review pages are pure
+      // content, which fixes the made-for-ads / thin-affiliate signal.
+      // Flip on post-approval via env: NUXT_PUBLIC_ADSENSE_ENABLED=true
+      adsenseEnabled: false,
     },
   },
 

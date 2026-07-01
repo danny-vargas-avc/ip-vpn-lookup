@@ -7,7 +7,7 @@
         Wrong geolocation, VPN false-positive, or feedback on the site — send it over.
       </p>
       <p>
-        <a href="mailto:dannyvargasny@gmail.com" class="text-sky-400 hover:text-sky-300 transition-colors">dannyvargasny@gmail.com</a>
+        <a href="mailto:dannyvargashb@gmail.com" class="text-sky-400 hover:text-sky-300 transition-colors">dannyvargashb@gmail.com</a>
       </p>
       <p class="text-sm text-slate-500">
         If you're reporting a wrong location, sharing your approximate city/region (not exact address — I don't
@@ -20,7 +20,7 @@
 <script setup lang="ts">
 usePageMeta({
   title: 'Contact — iplocator.dev',
-  description: 'Contact iplocator.dev about wrong geolocation, VPN false-positives, or site feedback. Email dannyvargasny@gmail.com.',
+  description: 'Contact iplocator.dev about wrong geolocation, VPN false-positives, or site feedback. Email dannyvargashb@gmail.com.',
   path: '/contact',
 })
 </script>
